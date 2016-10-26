@@ -39,7 +39,7 @@ end
 
 def print(students)
   students.each do |student|
-    if student[:name].to_s.start_with?("T")
+    if student[:name].to_s.length <= 12
       puts "#{student[:name]} (#{student[:cohort]} cohort)"
     end
   end
