@@ -61,12 +61,26 @@ def print(students)
   end
 end
 
+def list_cohorts(students)
+  lists = students.map { |student| student[:cohort] }
+  puts "We have students from the following cohorts:"
+  puts lists
+  puts "Which would you like to display?"
+  cohort_answer = gets.chomp.to_sym
+  students.each do |student|
+    if student[:cohort] == cohort_answer
+      puts "#{student[:cohort]} cohort, student #{student[:name]}"
+    end
+  end
+end
+  
 def print_footer(names)
-  puts "Overall, we have #{names.count} great students"
+  puts "Overall, we have #{names.count} great students."
 end
 
 #nothing happens until we call the methods
 students = input_students
+list_cohorts(students)
 print_header
 print(students)
 print_footer(students)
