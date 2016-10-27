@@ -23,13 +23,24 @@ def input_students
   # while the name is not empty, repeat this code
   while !name.empty? do
     # add the student hash to the array
+    puts "What is the student's cohort?"
+    cohort = gets.chomp.to_sym
+    if cohort.empty?
+      cohort = :november
+    end
+    until [:January, :February, :March, :April, :May, :June, :July,
+    :August, :September, :October, :November, :December].include?(cohort)
+    puts "I'm sorry, that answer wasn't recognised. Please enter the full name 
+    of the month."
+    cohort = gets.chomp.to_sym
+  end
     puts "What is the student's main hobby?"
     hobby = gets.chomp
     puts "Where was the student born?"
     birthplace = gets.chomp
     puts "What is the student's height?"
     height = gets.chomp
-    students << {name: name, cohort: :november, hobby: hobby, birthplace: birthplace, height: height}
+    students << {name: name, cohort: cohort, hobby: hobby, birthplace: birthplace, height: height}
     puts "Now we have #{students.count} students"
     # gets another name from the user
     name = gets.chomp
