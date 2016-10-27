@@ -41,7 +41,11 @@ def input_students
     puts "What is the student's height?"
     height = gets.chomp
     students << {name: name, cohort: cohort, hobby: hobby, birthplace: birthplace, height: height}
-    puts "Now we have #{students.count} students"
+  if students.count == 1
+    puts "Now we have #{students.count} student."
+  else
+    puts "Now we have #{students.count} students."
+  end
     # gets another name from the user
     name = gets.chomp
   end
@@ -75,7 +79,11 @@ def list_cohorts(students)
 end
   
 def print_footer(names)
+  if names.count == 1
+  puts "Overall, we have #{names.count} great student."
+  else
   puts "Overall, we have #{names.count} great students."
+  end
 end
 
 #nothing happens until we call the methods
